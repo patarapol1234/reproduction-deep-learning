@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "official_files_verified": true,
+  "official_commit": "e9e926a668d85244c66a6d5c006efbd2b82e83e8",
+  "slurm_job_id": "21071",
+  "runs": 3,
+  "corruption_rows": 45,
+  "planned_image_evaluations": 450000,
+  "log_precision_percentage_points": 0.01,
+  "primary_error_percent": {
+    "norm": 20.436,
+    "source": 43.516666666666666,
+    "tent": 18.583333333333332
+  },
+  "source_to_tent_gain_pp": 24.933333333333334,
+  "norm_to_tent_gain_pp": 1.8526666666666678,
+  "summary_sha256": "f1b599112ba366f1427849e5fcfa24c154c10a4ab89f737a8c5bf797de236ce5",
+  "per_corruption_sha256": "8a8731a0dd0668bc28a9320c29593f22a48de4e098b53f416f6928609e3c42e3",
+  "measurement_note": "Errors are read from unchanged official logs (two decimal places). Process time includes Python startup, model/data loading, transfers and evaluation; no per-loop timing or GPU-memory measurement is collected."
+}

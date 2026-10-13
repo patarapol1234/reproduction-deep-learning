@@ -1,0 +1,11 @@
+WARNING: nvidia-smi failed; checking CUDA execution with PyTorch next.
+/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/env_tent/lib/python3.12/site-packages/robustbench/loaders.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/env_tent/lib/python3.12/site-packages/torch/cuda/__init__.py:182: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+Traceback (most recent call last):
+  File "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/src/RRv2/scripts/preflight.py", line 105, in <module>
+    main()
+  File "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/src/RRv2/scripts/preflight.py", line 37, in main
+    raise RuntimeError("The unchanged official cifar10c.py requires a CUDA GPU")
+RuntimeError: The unchanged official cifar10c.py requires a CUDA GPU

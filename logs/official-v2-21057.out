@@ -1,0 +1,4 @@
+Started: 2026-10-12T18:53:59+07:00
+Job: 21057; results: /storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/src/RRv2/results/job-21057
+Failed to initialize NVML: Driver/library version mismatch
+NVML library version: 580.178

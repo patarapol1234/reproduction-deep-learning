@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Reproducing the Official Tent Example — v2</title>
+<style>
+@page { size: A4; margin: 18mm; }
+body { font-family: sans-serif; font-size: 10pt; line-height: 1.35; color: #182c3e; max-width: 760px; margin: 24px auto; }
+h1 { font-size: 22pt; color: #183f57; margin-bottom: 8pt; }
+h2 { font-size: 13pt; color: #183f57; margin-top: 15pt; margin-bottom: 6pt; page-break-after: avoid; }
+h3 { font-size: 11pt; color: #183f57; margin-top: 10pt; margin-bottom: 5pt; page-break-after: avoid; }
+p { margin-top: 6pt; margin-bottom: 8pt; }
+.meta, .caption { color: #526473; font-size: 9pt; }
+.status { padding: 10pt; background-color: #eef4f7; border-left: 3pt solid #3d738d; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 8pt; margin-bottom: 8pt; }
+td, th { padding: 6pt; border-bottom: 1px solid #c4d2db; text-align: left; }
+th { background-color: #eaf0f4; }
+code { font-family: monospace; font-size: 8.5pt; }
+img { width: 100%; }
+a { color: #235d7a; }
+.references { font-size: 8.8pt; }
+</style></head><body>
+<article id="report-content">
+<h1>Reproducing the Official Tent Example</h1>
+<p class="meta">CPE 663 Deep Learning · Research Reproduction · v2<br>Student ID: &lt;student id&gt; · {{date}}</p>
+<p class="status"><strong>{{status}}</strong><br>{{status_detail}}</p>
+
+<h2>1. Problem summary</h2>
+<p>A classifier trained on clean images can lose accuracy when test images contain noise, blur, weather effects or digital artifacts. Tent addresses fully test-time adaptation: adapt a trained model using unlabeled target data, without source data or target labels [1]. This experiment asks whether the released implementation reproduces the Source, Norm and Tent results reported in the authors’ public CIFAR-10-C example [2].</p>
+<p>The declared scope is the Standard WRN-28-10 model, all 15 standard CIFAR-10-C corruptions, severity 5, and 10,000 images per corruption. The target is the executable public example. Paper Table 2 uses R-26 and offline adaptation and is contextual evidence rather than the numerical target of this experiment.</p>
+
+<h2>2. Method explanation</h2>
+<p>Tent minimizes the mean prediction entropy over each unlabeled test batch: L(X) = −(1 / |X|) Σ<sub>x∈X</sub> Σ<sub>c</sub> p(c|x) log p(c|x). It estimates BatchNorm statistics from the current batch and optimizes only the channel-wise affine scale and shift, γ and β. The other model parameters are fixed. Ground-truth labels are used only to measure classification accuracy.</p>
+<p>Source uses the pretrained model in evaluation mode and its stored normalization statistics. Norm uses target batch statistics without an optimizer update. Tent additionally performs one Adam update per batch, with learning rate 0.001, β<sub>1</sub> = 0.9, β<sub>2</sub> = 0.999 and zero weight decay. The official online implementation returns predictions computed before the current batch’s parameter update; that update influences later batches. Norm and Tent reset their saved states between corruptions. Source has no adaptation state to reset.</p>
+
+<h2>3. Official implementation and experimental protocol</h2>
+<p>The adaptation and evaluation code comes directly from the official repository at commit <code>e9e926a668d85244c66a6d5c006efbd2b82e83e8</code>. Its source files, YAML configurations and MIT license are included under <code>official/</code>. A SHA-256 manifest verifies that the supplied files match the downloaded snapshot. The experiment invokes the authors’ <code>cifar10c.py</code> directly, which uses their <code>tent.py</code>, <code>norm.py</code> and RobustBench accuracy function. No independent adaptation implementation or adaptation unit-test suite is added in v2.</p>
+<p>Project-specific code prepares dependencies, invokes the official command, preserves logs, reads reported percentages and builds tables and this report. This is reuse of the authors’ implementation; the project does not claim an independently implemented entropy objective or optimizer. RobustBench 1.1 supplies the pretrained checkpoint and dataset loader.</p>
+<p>The original repository pins a 2021 software stack. The cluster preparation uses the existing modern PyTorch environment from the earlier experiment, adding YACS 0.1.8 and iopath 0.1.8. A compatible fallback requirements file is supplied if that environment is absent. This dependency change is explicit; it does not reproduce the original software environment.</p>
+<p>The released YAML evaluates severities 5 through 1. This experiment selects severity 5 through the supported command-line override <code>CORRUPTION.SEVERITY [5]</code>. Primary batch size is 200, RNG seed is 1, and cuDNN benchmarking is enabled. Image order stays fixed because the official loader call uses <code>shuffle=False</code>. Each method runs in a fresh process. An optional batch-128 comparison uses the same official code; it is not an exact recreation of paper Table 2. No shuffled-order experiment is included because the released entrypoint does not expose that setting.</p>
+<p>{{environment}}</p>
+
+<h2>4. Results</h2>
+{{results_table}}
+<p class="caption">Table 1. Mean classification error (%) across 15 corruptions; lower is better. Reference values come from the authors’ severity-5 WRN-28-10 README table. New measurements are calculated only from v2 official logs.</p>
+<p>{{results_discussion}}</p>
+{{attempt_section}}
+{{figure}}
+{{batch_section}}
+
+<h2 {{discussion_break}}>5. Discussion and limitations</h2>
+<p>The planned comparison holds input conditions fixed across the public example’s three methods. Low prediction entropy measures confidence rather than correctness, so a benefit on this benchmark would not establish improvement on every distribution shift. A single fixed-order run per method does not provide seed-based uncertainty estimates. cuDNN benchmarking and CUDA arithmetic can produce small numerical differences.</p>
+<p>Paper Table 2 reports Source/BN/Tent errors of 40.8/17.3/14.3% using R-26, batch 128 and offline adaptation. The public example instead uses WRN-28-10 and online scoring. Matching its public values cannot establish an exact numerical reproduction of the paper’s R-26 experiment.</p>
+<p>When measurements are available, the analysis reads the unchanged official program’s per-corruption errors printed to two decimal places and computes their arithmetic mean. Per-image predictions and integer correct counts are not reconstructed from rounded percentages. Process durations include startup, checkpoint and dataset loading, GPU transfers, evaluation and logging. They are not evaluation-loop timings, and v2 does not collect per-method GPU-memory peaks.</p>
+{{recovery}}
+
+<h2>6. Conclusion</h2>
+<p>{{conclusion}}</p>
+</article>
+<div class="references">
+<h2>References</h2>
+<p>[1] D. Wang et al. “Tent: Fully Test-Time Adaptation by Entropy Minimization.” ICLR, 2021. <a href="https://arxiv.org/abs/2006.10726v3">arXiv:2006.10726v3</a>.</p>
+<p>[2] Official Tent repository and CIFAR-10-C example, commit <code>e9e926a668d85244c66a6d5c006efbd2b82e83e8</code>. <a href="https://github.com/DequanWang/tent/tree/e9e926a668d85244c66a6d5c006efbd2b82e83e8">Pinned repository</a>.</p>
+<p>[3] D. Hendrycks and T. Dietterich. “Benchmarking Neural Network Robustness to Common Corruptions and Perturbations.” ICLR, 2019. <a href="https://arxiv.org/abs/1807.01697">arXiv:1807.01697</a>.</p>
+<p>[4] F. Croce et al. “RobustBench: A Standardized Adversarial Robustness Benchmark.” NeurIPS Datasets and Benchmarks, 2021. <a href="https://arxiv.org/abs/2010.09670">arXiv:2010.09670</a>.</p>
+</div></body></html>

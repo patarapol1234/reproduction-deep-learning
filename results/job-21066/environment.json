@@ -1,0 +1,12 @@
+{
+  "status": "failed",
+  "stage": "cuda_preflight",
+  "captured_at_utc": "2026-10-12T12:47:44.906679+00:00",
+  "hostname": "gpu01.slurm.cpe.kmutt.ac.th",
+  "slurm_job_id": "21066",
+  "cuda_build": "12.8",
+  "official_commit": "e9e926a668d85244c66a6d5c006efbd2b82e83e8",
+  "official_files_verified": true,
+  "error_type": "RuntimeError",
+  "error": "The unchanged official cifar10c.py requires a CUDA GPU"
+}

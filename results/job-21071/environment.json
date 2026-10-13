@@ -1,0 +1,208 @@
+{
+  "status": "prepared",
+  "captured_at_utc": "2026-10-12T13:15:42.789076+00:00",
+  "hostname": "gpu04.slurm.cpe.kmutt.ac.th",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "packages": {
+    "torch": "2.8.0",
+    "torchvision": "0.23.0",
+    "robustbench": "1.1",
+    "numpy": "2.0.2",
+    "yacs": "0.1.8",
+    "iopath": "0.1.8",
+    "setuptools": "80.10.2",
+    "timm": "1.0.9",
+    "gdown": "5.1.0",
+    "matplotlib": "3.9.4",
+    "PyYAML": "6.0.3"
+  },
+  "official_commit": "e9e926a668d85244c66a6d5c006efbd2b82e83e8",
+  "official_files_verified": true,
+  "official_entrypoint": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/src/RRv2/official/cifar10c.py",
+  "cuda_available": true,
+  "cuda_build": "12.8",
+  "cuda_compute_check": "passed",
+  "cudnn": 91002,
+  "gpu": "NVIDIA GeForce RTX 4070 Ti",
+  "slurm_job_id": "21071",
+  "slurm_partition": "gpu4070ti",
+  "batch_sizes": [
+    200
+  ],
+  "corruption_files": [
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/gaussian_noise.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/shot_noise.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/impulse_noise.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/defocus_blur.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/glass_blur.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/motion_blur.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/zoom_blur.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/snow.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/frost.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/fog.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/brightness.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/contrast.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/elastic_transform.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/pixelate.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/jpeg_compression.npy",
+      "bytes": 153600128,
+      "shape": [
+        50000,
+        32,
+        32,
+        3
+      ],
+      "dtype": "uint8"
+    }
+  ],
+  "labels": {
+    "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/data/tent/CIFAR-10-C/labels.npy",
+    "sha256": "e6d972b1238665d8ef54aae5affe8e292dda1eb88a6840bf0f5988cdb649da7b"
+  },
+  "checkpoint": {
+    "path": "/storage/slurm/home/68070701624@cpe.kmutt.ac.th/deep_learning/models/tent/cifar10/corruptions/Standard.pt",
+    "sha256": "6ed1c75dad63e8ebdbef365020dd1a7eee5e79cf8a1438bd3bdc3b9c7aab3d44"
+  }
+}

@@ -1,0 +1,11 @@
+JobID           JobName      State    Elapsed ExitCode        NodeList     MaxRSS 
+------------ ---------- ---------- ---------- -------- --------------- ---------- 
+21057        tent-offi+     FAILED   00:00:00     18:0 gpu01.slurm.cp+            
+21057.batch       batch     FAILED   00:00:00     18:0 gpu01.slurm.cp+            
+21066        tent-offi+     FAILED   00:00:43      1:0 gpu01.slurm.cp+            
+21066.batch       batch     FAILED   00:00:43      1:0 gpu01.slurm.cp+            
+21069        tent-offi+    PENDING   00:00:00      0:0   None assigned            
+21071        tent-offi+  COMPLETED   00:06:02      0:0 gpu04.slurm.cp+            
+21071.batch       batch  COMPLETED   00:06:02      0:0 gpu04.slurm.cp+            
+21072        tent-offi+  COMPLETED   00:06:08      0:0 gpu05.slurm.cp+            
+21072.batch       batch  COMPLETED   00:06:08      0:0 gpu05.slurm.cp+            

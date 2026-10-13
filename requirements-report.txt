@@ -1,0 +1,2 @@
+# PDF rendering is optional on the cluster and can be done locally.
+PyMuPDF==1.26.5

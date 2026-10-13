@@ -1,0 +1,22 @@
+{
+  "name": "official_tent_cifar10c_v2",
+  "official_commit": "e9e926a668d85244c66a6d5c006efbd2b82e83e8",
+  "methods": ["source", "norm", "tent"],
+  "model": "Standard",
+  "architecture": "WRN-28-10",
+  "dataset": "cifar10",
+  "severity": 5,
+  "num_examples_per_corruption": 10000,
+  "primary_batch_size": 200,
+  "optional_batch_size": 128,
+  "seed": 1,
+  "shuffle": false,
+  "corruptions": [
+    "gaussian_noise", "shot_noise", "impulse_noise", "defocus_blur",
+    "glass_blur", "motion_blur", "zoom_blur", "snow", "frost", "fog",
+    "brightness", "contrast", "elastic_transform", "pixelate", "jpeg_compression"
+  ],
+  "reference_mean_error_percent": {"source": 43.5, "norm": 20.4, "tent": 18.6},
+  "reference_url": "https://github.com/DequanWang/tent/tree/e9e926a668d85244c66a6d5c006efbd2b82e83e8",
+  "reference_scope": "Released WRN-28-10 example, severity 5; paper Table 2 uses R-26 and a different protocol."
+}

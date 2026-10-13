@@ -1,0 +1,64 @@
+{
+  "repository": "https://github.com/DequanWang/tent",
+  "commit": "e9e926a668d85244c66a6d5c006efbd2b82e83e8",
+  "archive_url": "https://codeload.github.com/DequanWang/tent/tar.gz/e9e926a668d85244c66a6d5c006efbd2b82e83e8",
+  "archive_sha256": "a6a177f4f7419bee6d48d6db17004902a72614c21f78a84fa51570ce78434396",
+  "official_files_modified": false,
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 143,
+      "sha256": "6d0ad42e31002ec2b225edd41b51f838afcef0d49035b27b36ce091598df771d"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1087,
+      "sha256": "c782f284d1caaab37e0022e826622f898b9527c5eec0eba3fa16c0d85f418df6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6561,
+      "sha256": "61ab2670b481714a030ea8cf1326e073d338fb56536262151c626f6e3432afb5"
+    },
+    {
+      "path": "cfgs/norm.yaml",
+      "bytes": 413,
+      "sha256": "befb6056ac4d4d04d3024680b94478016a04b13684ed6053192d9c09608289e5"
+    },
+    {
+      "path": "cfgs/source.yaml",
+      "bytes": 415,
+      "sha256": "8a3f517fc468462acca92f01800c3767eadadc432ae486bb9072b596e8c117e8"
+    },
+    {
+      "path": "cfgs/tent.yaml",
+      "bytes": 478,
+      "sha256": "4e8f02d8db44de71e74eb5047896179c9e0a1a34a38c8b1290cc141f70fa3102"
+    },
+    {
+      "path": "cifar10c.py",
+      "bytes": 4399,
+      "sha256": "33798feee14ee6ca928963a41b0162e9a30b03d22daf2cdf6fd5eeb9c046cf3a"
+    },
+    {
+      "path": "conf.py",
+      "bytes": 6007,
+      "sha256": "2588dc2171ebc9a187dca31a93269e341c062b8df9a69b46196989f8a21a9cc9"
+    },
+    {
+      "path": "norm.py",
+      "bytes": 2159,
+      "sha256": "2e7cff9f2fe5a7bb50a92e955c31ea55c58eb8b7778f09b129b2ef16c87b285d"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 140,
+      "sha256": "74b8d3b4c43a0d08014597c27a24b2f4ec53d65d65b54416e59ee1974b0c6758"
+    },
+    {
+      "path": "tent.py",
+      "bytes": 4403,
+      "sha256": "d854e1f65f741aa1632dfb55420ca1bcf5405c978bef890e45caad04980514c8"
+    }
+  ]
+}
